@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Disorder Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('D:/My Documents/Desktop/Mental Project/templates/moritz-kindler-G66K_ERZRhM-unsplash 2.jpg'); 
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        form {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        select, input[type="radio"] {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+            align-self: center;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        .form-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .form-section-left, .form-section-right {
+            flex: 1;
+            padding-right: 10px;
+        }
+        
+        .form-section-right {
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/predict" method="post">
+        <h2>Mental Disorder Prediction</h2>
+        <div class="form-section">
+            <div class="form-section-left">
+                <label for="sadness">How often do you feel sad?:</label><br>
+                <select id="sadness" name="sadness">
+                    <option value="most often">Most Often</option>
+                    <option value="usually">Usually</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="seldom">Seldom</option>
+                </select><br>
+
+                <label for="euphoric">How often do you feel Euphoric?:</label><br>
+                <select id="euphoric" name="euphoric">
+                    <option value="most often">Most Often</option>
+                    <option value="usually">Usually</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="seldom">Seldom</option>
+                </select><br>
+
+                <label for="exhausted">How often do you feel Exhausted?:</label><br>
+                <select id="exhausted" name="exhausted">
+                    <option value="most often">Most Often</option>
+                    <option value="usually">Usually</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="seldom">Seldom</option>
+                </select><br>
+                
+                <label for="sleep_disorder">How often are you deprived of sleep?:</label><br>
+                <select id="sleep_disorder" name="sleep_disorder">
+                    <option value="most often">Most Often</option>
+                    <option value="usually">Usually</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="seldom">Seldom</option>
+                </select><br>
+
+                <label >From 1 to 10 how would you rank:</label><br>
+                
+                
+                <label for="sexual_activity">Sexual Activity:</label><br>
+                <select id="sexual_activity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
+
+                <label for="concentration">Concentration:</label><br>
+                <select id="concentration" name="concentration">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
+
+                <label for="optimism">Optimism:</label><br>
+                <select id="optimism" name="optimism">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
+                <!-- Add more fields here as needed -->
+                
+            </div>
+            <div class="form-section-right">
+                <label for="mood_swings">Do you experience Mood Swings?:</label>
+                <div class="select-container">
+                    <input type="radio" id="mood_swings_yes" name="mood_swings" value="yes">
+                    <label for="mood_swings_yes">Yes</label>
+                    <input type="radio" id="mood_swings_no" name="mood_swings" value="no">
+                    <label for="mood_swings_no">No</label>
+                </div>
+                <!-- Add more fields here as needed -->
+                <label for="suicidal_thoughts">Do you have Suicidal thoughts?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="suicidal_thoughts_yes" name="suicidal_thoughts" value="yes">
+                    <label for="suicidal_thoughts_yes">Yes</label>
+                    <input type="radio" id="suicidal_thoughts_no" name="suicidal_thoughts" value="no">
+                    <label for="suicidal_thoughts_no">No</label>
+                </div>
+                <!-- Add more fields here as needed -->
+                <label for="anorexia">Do you suffer from Anorxia:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="anorexia_yes" name="anorexia" value="yes">
+                    <label for="anorexia_yes">Yes</label>
+                    <input type="radio" id="anorexia_no" name="anorexia" value="no">
+                    <label for="anorexia_no">No</label>
+                </div>
+
+                <label for="authority_respect">Do you respect Authority?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="authority_respect _yes" name="authority_respect" value=1>
+                    <label for="authority_respect_yes">Yes</label>
+                    <input type="radio" id="authority_respect_no" name="authority_respect" value=0 >
+                    <label for="authority_respect_no">No</label>
+                </div>
+
+                <label for="try_explain"> Do you try to explain?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id=" try_explain_yes" name="try_explain " value=1>
+                    <label for="try_explain_yes">Yes</label>
+                    <input type="radio" id=" try_explain_no" name="try_explain" value=0 >
+                    <label for="try_explain_no">No</label>
+                </div>
+
+                <label for="aggressive_response">Are you an Aggressive Responder?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="aggressive_response_yes" name="aggressive_response" value=1>
+                    <label for="aggressive_response_yes">Yes</label>
+                    <input type="radio" id="aggressive_response_no" name="aggressive_response" value=0>
+                <label for="aggressive_response_no">No</label>
+                </div>
+
+                <label for="ignore_move_on">Do you Ignore & Move ON:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="mood_swings_yes" name="mood_swings" value=1>
+                    <label for="mood_swings_yes">Yes</label>
+                    <input type="radio" id="mood_swings_no" name="mood_swings" value=0>
+                    <label for="mood_swings_no">No</label>
+                </div>
+
+                <label for="nervous_breakdown">Do you experience Nervous Breakdown?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="nervous_breakdown_yes" name="nervous_breakdown" value=1>
+                    <label for="nervous_breakdown_yes">Yes</label>
+                    <input type="radio" id="nervous_breakdown_no" name="nervous_breakdown" value=0>
+                    <label for="nervous_breakdown_no">No</label>
+                </div>
+
+                <label for="admit_mistakes">Do you Admit Mistakes?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="admit_mistakes_yes" name="admit_mistakes" value=1>
+                    <label for="admit_mistake_yes">Yes</label>
+                    <input type="radio" id="admit_mistakes_no" name="admit_mistakes" value=0>
+                    <label for="admit_mistakes_no">No</label>
+                </div>
+
+                <label for="overthinking">Do you Overthink?:</label>
+                <div class="select-container"> 
+                    <input type="radio" id="overthinking_yes" name="overthinking" value=1>
+                    <label for="overthinking">Yes</label>
+                    <input type="radio" id="overthinking" name="overthinking" value=0>
+                    <label for="overthinking_no">No</label>
+                </div>
+                <!-- Add more fields here as needed -->
+                <!-- Repeat the pattern for the remaining fields -->
+            </div>
+        </div>
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

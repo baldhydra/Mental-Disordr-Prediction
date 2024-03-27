@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Disorder Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="radio"] {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+      
+
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+        }
+        .form-container {
+            flex: 1;
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            flex: 1;
+            max-width: 400px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container p {
+            color: #333;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between; /* Align items on both ends */
+          
+            margin: 20px auto;
+            background-color: #fff;
+            width: 940px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        
+    </style>
+</head>
+<body class="card-container">
+     <div class="container">
+        <!-- Image -->
+        <img src="images.png" alt="Description of the image">
+
+        <!-- Text -->
+        <p>Mental</p>
+    </div>
+    <form class="form-container" action="/predict" method="post">
+        <h2>Mental Disorder Prediction</h2>
+        <h3>Symptoms</h3>
+        <style>
+            .select-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+        
+            .select-container label {
+                margin-right: 10px;
+            }
+        
+            .select-container input[type="radio"] {
+                margin-right: 5px;
+            }
+           
+        </style>
+        
+        
+        <div>
+            <label for="sadness">Sadness:</label>
+            <select id="sadness" name="sadness">
+                <option value="most often">Most Often</option>
+                <option value="usually">Usually</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="seldom">Seldom</option>
+            </select>
+        </div>
+        <div>
+            <label for="euphoric">Euphoric:</label>
+            <select id="euphoric" name="euphoric">
+                <option value="most often">Most Often</option>
+                <option value="usually">Usually</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="seldom">Seldom</option>
+            </select>
+        </div>
+        <div>
+            <label for="exhausted">Exhausted:</label>
+            <select id="exhausted" name="exhausted">
+                <option value="most often">Most Often</option>
+                <option value="usually">Usually</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="seldom">Seldom</option>
+            </select>
+        </div>
+        <div>
+            <label for="sleep_disorder">Sleep Disorder:</label>
+            <select id="sleep_disorder" name="sleep_disorder">
+                <option value="most often">Most Often</option>
+                <option value="usually">Usually</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="seldom">Seldom</option>
+            </select>
+        </div>
+        <label for="mood_swings">Mood Swings:</label>
+        <div class="select-container">
+            <input type="radio" id="mood_swings_yes" name="mood_swings" value="yes">
+            <label for="mood_swings_yes">Yes</label>
+            <input type="radio" id="mood_swings_no" name="mood_swings" value="no">
+            <label for="mood_swings_no">No</label>
+        </div>
+       
+            <label for="suicidal_thoughts">Suicidal thoughts:</label>
+            <div class="select-container"> 
+            <input type="radio" id="suicidal_thoughts_yes" name="suicidal_thoughts" value="yes">
+            <label for="suicidal_thoughts_yes">Yes</label>
+            <input type="radio" id="suicidal_thoughts_no" name="suicidal_thoughts" value="no">
+            <label for="suicidal_thoughts_no">No</label>
+        </div>
+   
+    
+        
+               
+            <label for="anorexia">Anorxia:</label>
+            <div class="select-container"> 
+            <input type="radio" id="_yes" name="anorexia" value="yes">
+            <label for="anorexia_yes">Yes</label>
+            <input type="radio" id="anorexia_no" name="anorexia" value="no">
+            <label for="anorexia_no">No</label>
+        </div>
+      
+            <label for="authority_respect">Authority Respect:</label>
+            <div class="select-container"> 
+            <input type="radio" id="authority_respect _yes" name="authority_respect" value="yes">
+            <label for="authority_respect_yes">Yes</label>
+            <input type="radio" id="authority_respect_no" name="authority_respect" value="no" >
+            <label for="authority_respect_no">No</label>
+        </div>
+        
+            <label for="try_explain"> Try Explain:</label>
+            <div class="select-container"> 
+            <input type="radio" id=" try_explain_yes" name=" try_explain" value="yes">
+            <label for="try_explain_yes">Yes</label>
+            <input type="radio" id=" try_explain_no" name="try_explain" value="no" >
+            <label for="try_explain_no">No</label>
+        </div>
+        
+            <label for="aggressive_response">Aggressive Response:</label>
+            <div class="select-container"> 
+            <input type="radio" id="aggressive_response_yes" name="aggressive_response" value="yes">
+            <label for="aggressive_response_yes">Yes</label>
+            <input type="radio" id="aggressive_response_no" name="aggressive_response" value="no">
+            <label for="aggressive_response_no">No</label>
+        </div>
+        
+            <label for="ignore_move_on">Ignore & Move ON:</label>
+            <div class="select-container"> 
+            <input type="radio" id="mood_swings_yes" name="mood_swings" value="yes">
+            <label for="mood_swings_yes">Yes</label>
+            <input type="radio" id="mood_swings_no" name="mood_swings" value="no">
+            <label for="mood_swings_no">No</label>
+        </div>
+        
+            <label for="nervous_breakdown">Nervous Breakdown:</label>
+            <div class="select-container"> 
+            <input type="radio" id="nervous_breakdown_yes" name="nervous_breakdown" value="yes">
+            <label for="nervous_breakdown_yes">Yes</label>
+            <input type="radio" id="nervous_breakdown_no" name="nervous_breakdown" value="no">
+            <label for="nervous_breakdown_no">No</label>
+        </div>
+        
+            <label for="admit_mistakes">Admit Mistakes:</label>
+            <div class="select-container"> 
+            <input type="radio" id="admit_mistakes_yes" name="admit_mistakes" value="yes">
+            <label for="admit_mistake_yes">Yes</label>
+            <input type="radio" id="admit_mistakes_no" name="admit_mistakes" value="no">
+            <label for="admit_mistakes_no">No</label>
+        </div>
+        
+            <label for="overthinking">Overthinking:</label>
+            <div class="select-container"> 
+            <input type="radio" id="overthinking_yes" name="overthinking" value="yes">
+            <label for="overthinking">Yes</label>
+            <input type="radio" id="overthinking" name="overthinking" value="no">
+            <label for="overthinking_no">No</label>
+            
+        </div>
+
+        <div>
+            <label for="sexual_activity">Sexual Activity:</label>
+            <select id="sexual_activity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                </select>
+        </div>
+        <div>
+            <label for="concentration">Concentration:</label>
+            <select id="concentration">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                </select>
+        </div>
+        <div>
+            <label for="optimism">Optimism:</label>
+            <select id="optimism">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                </select><br>
+                <button type="submit">Predict</button>
+        </div>
+        
+        
+       
+    </form>
+    
+
+   
+</body>
+</html>
